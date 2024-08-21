@@ -11,7 +11,7 @@ COPY . $WORKDIR
 RUN python -m pip install -r requirements.txt
 
 #open container port 5000 for interaction
-EXPOSE 8025
+EXPOSE 5000
 
 #command that runs automatically every time the container is started
-ENTRYPOINT ["/bin/sh", "-c", "python babyshop_app/manage.py migrate && python babyshop_app/manage.py createsupe && python babyshop_app/manage.py runserver 0.0.0.0:8025"]
+ENTRYPOINT ["/bin/sh", "-c", "python babyshop_app/manage.py migrate && python babyshop_app/manage.py createsupe && python babyshop_app/manage.py runserver 0.0.0.0:5000"]
