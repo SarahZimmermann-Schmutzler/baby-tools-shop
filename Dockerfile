@@ -15,7 +15,7 @@ EXPOSE 5000
 
 #command that runs automatically every time the container is started
 ENTRYPOINT [
-    "/bin/sh", 
+    "sh", 
     "-c", 
     "python babyshop_app/manage.py migrate && python babyshop_app/manage.py createsupe && python babyshop_app/manage.py runserver 0.0.0.0:8000"
 ]
