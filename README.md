@@ -18,6 +18,15 @@ You get the empty web shop frame which you can fill - with help of the django ad
 
 #### Shop Example
 
+##### Homepage
+<img alt="" src="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/project_images/homepage.png"></img>
+
+##### Category and Logged User
+##### Product Detail View
+##### Register Page
+##### Login Page
+
+
 ### Hints
 
 This section will cover some hot tips when trying to interacting with this repository:
