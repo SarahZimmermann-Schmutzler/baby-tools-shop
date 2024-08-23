@@ -21,7 +21,7 @@ You get the empty web shop frame which you can fill - with help of the django ad
 ##### Homepage
 <img alt="" src="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/project_images/homepage.png"></img>
 
-##### Category and Logged User
+##### Category "Baby Care" and Logged User
 <img alt="" src="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/project_images/cat_logged.png"></img>
 
 ##### Product Detail View
