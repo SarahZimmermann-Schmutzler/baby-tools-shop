@@ -1,10 +1,22 @@
-# E-Commerce Project For Baby Tools
+# Containerize an application on a VM using the example of a web shop: BabyStore
 
 ### TECHNOLOGIES
 
+#### Web Shop
 - Python 3.9
 - Django 4.0.2
 - Venv
+
+#### Containerization
+- Docker
+
+### BabyStore - The Baby Tools Shop
+
+After your setup the application is a Python and Django based web shop, that offers products (baby tools) to potential buyers. It includes a detail-view of the products, an register and login option for the buyers. 
+
+You get the empty web shop frame which you can fill - with help of the django admin panel - with categories and matching products that then appeares in the shop.
+
+#### Shop Example
 
 ### Hints
 
