@@ -119,10 +119,10 @@ The app is now running on IP-Adress-Of-Your-VM:8025. You can use an other port t
         help = 'Create a superuser non-interactively'
 
         def handle(self, *args, **options):
-            # .env-Datei laden
+            # load .env-file
             dotenv.load_dotenv()
 
-            # Werte aus der .env-Datei laden
+            # load values from .env-file
             username = os.environ.get('SUPERUSER_USERNAME')
             email = os.environ.get('SUPERUSER_EMAIL')
             password = os.environ.get('SUPERUSER_PASSWORD')
@@ -137,7 +137,7 @@ The app is now running on IP-Adress-Of-Your-VM:8025. You can use an other port t
             else:
                 self.stdout.write(self.style.WARNING(f'Superuser "{username}" already exists.'))
     ```
-4. 
+4. Work with **dotenv** to keep sensitive data secret.
 
 
 <!-- ### Hints
