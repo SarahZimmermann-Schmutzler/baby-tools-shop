@@ -77,14 +77,28 @@ The app is now running on IP-Adress-Of-Your-VM:8025. You can use an other port t
 
 #### Put the shop in a container and show it to the world
 
-1. Install **Docker** globally on your server.
+1. Install **Docker** globally on your server:
   - Ubuntu:  
     `sudo apt install docker.io`
 
-  - Did it work?
-package installed at: `cat /var/log/dpkg.log | grep "install" | grep docker`  
-OR  
-check docker status: `sudo systemctl status docker`
+  - Did it work?  
+  package installed at: `cat /var/log/dpkg.log | grep "install" | grep docker`  
+  OR  
+  check docker status: `sudo systemctl status docker`
+
+2. Write a **Dockerfile**. It's a so called conatiner-image, and thus the base of the container:  
+    `FROM python:3.10-alpine`  
+    base frame of the container-image
+    `WORKDIR /app`  
+    directory in the container that contains all files / assets of the projects
+    `COPY . $WORKDIR`  
+    copies the files of the current folder from the host in the /app-directory of the container during build process
+    `RUN python -m pip install -r requirements.txt`  
+    installs the dependencies for the app and that are saved in the requirements.txt
+    `EXPOSE 5000`  
+    opens container port 5000 for interaction
+    `ENTRYPOINT ["/bin/sh", "-c", "python babyshop_app/manage.py migrate && python babyshop_app/manage.py createsupe && python babyshop_app/manage.py runserver 0.0.0.0:5000"]`  
+    command that runs automatically every time the container is started
 
 <!-- ### Hints
 
