@@ -49,9 +49,9 @@ One way to release the shop is the method of **CONTAINERIZATION**. There you put
 
 2. Clone the project to your server. You can clone it either to the server (f.e. virtual environment )you want to run the application later or first to your pc / laptop for an easier workaround with a code editor.
 
-3. Open the module `*babyshop*`, create and open the virtual environment:
-`sudo apt install python3.10-venv`
-`python3 -m venv env`
+3. Open the module `*babyshop*`, create and open the virtual environment:  
+`sudo apt install python3.10-venv`  
+`python3 -m venv env`  
 `source env/bin/activate`
 
 4. Install the `*requirements.txt*`:
@@ -78,7 +78,13 @@ The app is now running on IP-Adress-Of-Your-VM:8025. You can use an other port t
 #### Put the shop in a container and show it to the world
 
 1. Install **Docker** globally on your server.
-- 
+- Ubuntu:
+`sudo apt install docker.io`
+
+- Did it work?
+package installed at: `cat /var/log/dpkg.log | grep "install" | grep docker`
+OR
+check docker status: `sudo systemctl status docker`
 
 5. Create a `*superuser*`with Name, Email and Password:
 `python manage.py createsuperuser`
