@@ -98,7 +98,39 @@ The app is now running on IP-Adress-Of-Your-VM:8025. You can use an other port t
     `EXPOSE 5000`  
     opens container port 5000 for interaction
     `ENTRYPOINT ["/bin/sh", "-c", "python babyshop_app/manage.py migrate && python babyshop_app/manage.py createsupe && python babyshop_app/manage.py runserver 0.0.0.0:5000"]`  
-    command that runs automatically every time the container is started
+    command that runs automatically every time the container is started. the command *python babyshop_app/manage.py createsupe* is a custumized command that opens the script *createsupe.py*.
+
+3. Add the *supe-script* that is used in the **Dockerfile** to create a superuser non-interactively so you can interact with the django admin panel when the shop app is running. Put it in: `baby-tools-shop/products/management/commands/createsupe.py`:
+    ```python
+    from django.core.management.base import BaseCommand
+    from django.contrib.auth.models import User
+    import dotenv
+    import os
+
+    class Command(BaseCommand):
+        help = 'Create a superuser non-interactively'
+
+        def handle(self, *args, **options):
+            # .env-Datei laden
+            dotenv.load_dotenv()
+
+            # Werte aus der .env-Datei laden
+            username = os.environ.get('SUPERUSER_USERNAME')
+            email = os.environ.get('SUPERUSER_EMAIL')
+            password = os.environ.get('SUPERUSER_PASSWORD')
+
+            if not username or not email or not password:
+                self.stdout.write(self.style.ERROR('Superuser credentials are missing in the .env file.'))
+                return
+
+            if not User.objects.filter(username=username).exists():
+             User.objects.create_superuser(username=username, email=email, password=password)
+                self.stdout.write(self.style.SUCCESS(f'Superuser "{username}" created successfully!'))
+            else:
+                self.stdout.write(self.style.WARNING(f'Superuser "{username}" already exists.'))
+    ```
+4. 
+
 
 <!-- ### Hints
 

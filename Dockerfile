@@ -13,5 +13,5 @@ RUN python -m pip install -r requirements.txt
 #opens container port 5000 for interaction
 EXPOSE 5000
 
-#command that runs automatically every time the container is started
+#command that runs automatically every time the container is started. the command *python babyshop_app/manage.py createsupe* is a custumized command that opens the script *createsupe.py*.
 ENTRYPOINT ["/bin/sh", "-c", "python babyshop_app/manage.py migrate && python babyshop_app/manage.py createsupe && python babyshop_app/manage.py runserver 0.0.0.0:5000"]
