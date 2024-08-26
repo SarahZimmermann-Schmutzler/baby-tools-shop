@@ -54,7 +54,7 @@ One way to release the shop is the method of **CONTAINERIZATION**. There you put
     `python3 -m venv env`  
     `source env/bin/activate`
 
-4. Install the `*requirements.txt*`:
+4. Install the *requirements.txt*:
     `pip install -r requirements.txt`
 
 5. Take a look at the `settings.py` and add your VMs IP-Adress to the `Allowed Hosts`.
@@ -87,18 +87,25 @@ The app is now running on IP-Adress-Of-Your-VM:8025. You can use an other port t
   check docker status: `sudo systemctl status docker`
 
 2. Write a **Dockerfile**. It's a so called conatiner-image, and thus the base of the container:  
-    `FROM python:3.10-alpine`  
-    base frame of the container-image
-    `WORKDIR /app`  
-    directory in the container that contains all files / assets of the projects
-    `COPY . $WORKDIR`  
-    copies the files of the current folder from the host in the /app-directory of the container during build process
-    `RUN python -m pip install -r requirements.txt`  
-    installs the dependencies for the app and that are saved in the requirements.txt
-    `EXPOSE 5000`  
-    opens container port 5000 for interaction
-    `ENTRYPOINT ["/bin/sh", "-c", "python babyshop_app/manage.py migrate && python babyshop_app/manage.py createsupe && python babyshop_app/manage.py runserver 0.0.0.0:5000"]`  
-    command that runs automatically every time the container is started. the command *python babyshop_app/manage.py createsupe* is a custumized command that opens the script *createsupe.py*.
+``` Dockerfile
+    #base frame of our container-image
+    FROM python:3.10-alpine
+
+     #directoty in the container that contains all files/assets of the project 
+     WORKDIR /app
+
+    #copies the files of the current folder from the host in the /app-directory of the container during build process 
+    COPY . $WORKDIR
+
+    #installs the dependencies for the app and that are saved in the requirements.txt
+    RUN python -m pip install -r requirements.txt
+
+    #opens container port 5000 for interaction
+    EXPOSE 5000
+
+    #command that runs automatically every time the container is started. the command *python babyshop_app/manage.py createsupe* is a custumized command that opens the script *createsupe.py*.
+    ENTRYPOINT ["/bin/sh", "-c", "python babyshop_app/manage.py migrate && python babyshop_app/manage.py createsupe && python babyshop_app/manage.py runserver 0.0.0.0:5000"]
+```
 
 3. Add the *supe-script* that is used in the **Dockerfile** to create a superuser non-interactively so you can interact with the django admin panel when the shop app is running. Put it in: `baby-tools-shop/products/management/commands/createsupe.py`:
     ```python
