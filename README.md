@@ -82,9 +82,9 @@ The app is now running on IP-Adress-Of-Your-VM:8025. You can use an other port t
     `sudo apt install docker.io`
 
   - Did it work?
->>package installed at: `cat /var/log/dpkg.log | grep "install" | grep docker`
->>OR
->>check docker status: `sudo systemctl status docker`
+package installed at: `cat /var/log/dpkg.log | grep "install" | grep docker`  
+OR  
+check docker status: `sudo systemctl status docker`
 
 <!-- ### Hints
 
