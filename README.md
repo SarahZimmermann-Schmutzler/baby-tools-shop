@@ -50,41 +50,41 @@ One way to release the shop is the method of **CONTAINERIZATION**. There you put
 2. Clone the project to your server. You can clone it either to the server (f.e. virtual environment )you want to run the application later or first to your pc / laptop for an easier workaround with a code editor.
 
 3. Open the module *babyshop*, create and open the virtual environment:  
-`sudo apt install python3.10-venv`  
-`python3 -m venv env`  
-`source env/bin/activate`
+    `sudo apt install python3.10-venv`  
+    `python3 -m venv env`  
+    `source env/bin/activate`
 
 4. Install the `*requirements.txt*`:
-`pip install -r requirements.txt`
+    `pip install -r requirements.txt`
 
 5. Take a look at the `settings.py` and add your VMs IP-Adress to the `Allowed Hosts`.
 
 6. Don't forget to save your addings on github.You can use the up.bat file:
-- up + name_of_change_without_question_marks  
-`up new allowed host`
+  - up + name_of_change_without_question_marks  
+    `up new allowed host`
 
 7. Try to start the application:
-- For running BabyStore on your local server (pc / laptop):`python manage.py runserver`
+  - For running BabyStore on your local server (pc / laptop):`python manage.py runserver`
 Just follow the link then. It opens in your web server on localhost 8000.
 
-- For starting the application from your virtual environment: `python manage.py runserver 0.0.0.0:8025`
+  - For starting the application from your virtual environment: `python manage.py runserver 0.0.0.0:8025`
 The app is now running on IP-Adress-Of-Your-VM:8025. You can use an other port than 8025 of course.
 
-- It works (yeah!!!) and you see an empty store. Congrats you are awesome!
+  - It works (yeah!!!) and you see an empty store. Congrats you are awesome!
 
-- Starting failed (ohhh!!!) and you see an error. You are still awesome! Only a few dependencies are missing. Just intsall them, the console shows what is missing. 
+  - Starting failed (ohhh!!!) and you see an error. You are still awesome! Only a few dependencies are missing. Just intsall them, the console shows what is missing. 
 
 
 #### Put the shop in a container and show it to the world
 
 1. Install **Docker** globally on your server.
-- Ubuntu:  
-`sudo apt install docker.io`
+  - Ubuntu:  
+    `sudo apt install docker.io`
 
-- Did it work?
-package installed at: `cat /var/log/dpkg.log | grep "install" | grep docker`
-OR
-check docker status: `sudo systemctl status docker`
+  - Did it work?
+>>package installed at: `cat /var/log/dpkg.log | grep "install" | grep docker`
+>>OR
+>>check docker status: `sudo systemctl status docker`
 
 <!-- ### Hints
 
