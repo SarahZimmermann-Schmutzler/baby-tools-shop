@@ -137,7 +137,19 @@ The app is now running on IP-Adress-Of-Your-VM:8025. You can use an other port t
             else:
                 self.stdout.write(self.style.WARNING(f'Superuser "{username}" already exists.'))
     ```
-4. Work with **dotenv** to keep sensitive data secret.
+4. Work with **dotenv** to keep sensitive data secret:
+  `pip install python-dotenv`
+  `pip freeze > requirements.txt`  
+  - Then create a dotenv-file `.env` in the main directory where the key-value-pairs are saved. Do not push it on github! Just write a new .env on the server you run the containerized application.
+
+5. Add an dockerignore-file `.dockerignore` to the main directory that contains the directories that should not be copied to the container.  
+
+```
+  .gitignore
+  .git/
+  __pycache__/
+```
+
 
 
 <!-- ### Hints
