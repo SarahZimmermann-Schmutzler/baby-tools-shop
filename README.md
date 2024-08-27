@@ -175,10 +175,10 @@ The app is now running on IP-Adress-Of-Your-VM:8025. You can use an other port t
   - `--restart unless-stopped`: container restarts always automatically except it is stopped manually
 
 10. Did it work?  
-  1. have a look which containers are running:  
+  - Have a look which containers are running:  
     `docker ps`  
-  2. Open the admin panel of the application in the web browser and add some data.
-  3. Stop and start the container manually, the data should be there:  
+  - Open the admin panel of the application in the web browser and add some data.
+  - Stop and start the container manually, the data should be there:  
     `docker stop name-of-your-container`  
     `docker start name-of-your-container`  
   
