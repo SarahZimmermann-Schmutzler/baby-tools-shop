@@ -151,24 +151,27 @@ The app is now running on IP-Adress-Of-Your-VM:8025. You can use an other port t
 ```
 
 6. App works? `Dockerfile`, `.dockerignore` and `.env` are ready? Then let's build the **docker-image**:  
-  `docker build -t demo-app -f Dockerfile .`
-  - `-t demo-app`: the tag (name) of the container-image
+  `docker build -t name-of-your-app -f Dockerfile .`
+  - `-t name-of-your-app`: the tag (name) of the container-image
   - `-f Dockerfile .`: base of the docker-image is the Dockerfile from the current directory
 
 7. Did it work properly? Do a test run and start the container that is removed after closing:  
-  `docker run -it --rm -p 8025:5000 demo-app`  
+  `docker run -it --rm -p 8025:5000 name-of-your-app`  
   - `-it`: starts an interactive session between shell and container, so we can communicate with it
   - `--rm`: removes container after closing it
   - `-p 8025:5000`: portbinding our_server:container
-  - `demo-app`: reference to the container-image that we named 'demo-app'
+  - `name-of-your-app`: reference to the container-image that we named 'demo-app'
 
 8. Did it work? Let's find out with the help of the web browser:  
   - Run container from local server (pc / laptop): localhost:8025
   - Run container from VM: IP_Address_VM:8025  
   If there is an error regarding the templates, check the `settings.py` and adjust the path.
 
-9. Everything fine? Than let's start the container that keeps the database after restart and that restars automatically after an error that closes the application.
+9. Everything fine? Then let's start the container that keeps the database after restart and that restars automatically after an error that closes the application.
 
+### Checklist
+Here is a checklist that shows some important points for the containerization process:  
+<a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/Checkliste_Baby_Tools_Shop.pdf">Checklist</a>
 
 
 <!-- ### Hints
