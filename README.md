@@ -1,49 +1,68 @@
-# Containerize an application on a VM using the example of a web shop: BabyStore
+# Containerize an application on a VM using the example of a web shop: BabyStore  
+sources:  
+* Developer Akademie (DevSecOps Masterclass)  
+* ChatGPT for debugging and further definitions  
+* Google Translate for translation 
 
-### TECHNOLOGIES
+## Table of contents  
+* <a href="#technologies">Technologies</a>  
+    * <a href="#web-shop">Web Shop</a>  
+    <a href="#containerization">Containerization</a>  
+* <a href="#what-exactly-is">The Login</a>  
+    * <a href="#create-a-ssh-key-for-your-local-server">Create a SSH-Key for your local server</a>  
+    * <a href="#store-the-ssh-key-on-your-vm">Store the SSH-Key on your VM</a>  
+    * <a href="#deactivate-the-possibility-to-login-with-a-password">Deactivate the possibility to login with a password</a>  
+    * <a href="#alias-the-ssh-connection">Alias the SSH connection</a>  
+    * <a href="#ssh-config-for-several-identities">SSH config for several identities</a>  
+* <a href="#the-web-server-nginx">The web server - Nginx</a>  
+    * <a href="#install-and-activate-nginx">Install and activate Nginx</a>  
+    * <a href="#configurate-nginx">Configurate Nginx</a>  
+* <a href="#the-checklist">The Checklist</a>
 
-#### Web Shop
+## TECHNOLOGIES
+
+### Web Shop
 - Python 3.9
 - Django 4.0.2
 - Venv
 
-#### Containerization
+### Containerization
 - Docker
 
-### BabyStore - The Baby Tools Shop
+## BabyStore - The Baby Tools Shop
 
 After your setup the application is a Python and Django based web shop, that offers products (baby tools) to potential buyers. It includes a detail-view of the products, an register and login option for the buyers. 
 
 You get the empty web shop frame which you can fill - with help of the django admin panel - with categories and matching products that then appeares in the shop.
 
-#### Shop Example
+### Shop Example
 
-##### Homepage
+#### Homepage
 <img alt="" src="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/project_images/homepage.png"></img>
 
-##### Category "Baby Care" and Logged User
+#### Category "Baby Care" and Logged User
 <img alt="" src="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/project_images/cat_logged.png"></img>
 
-##### Product Detail View
+#### Product Detail View
 <img alt="" src="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/project_images/details.png"></img>
 
-##### Register Page
+#### Register Page
 <img alt="" src="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/project_images/register.png"></img>
 
-##### Login Page
+#### Login Page
 <img alt="" src="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/project_images/login.png"></img>
 
 
-### What is Containerization?
+## What is Containerization?
 
 The shop is ready and pretty and you further developed the application. But now what? 
 
 One way to release the shop is the method of **CONTAINERIZATION**. There you put the application with its dependencies in a closed environment called container. The container can be made to run on any server, for example a virtual machine. One provider of this containerization process is **Docker**.
 
 
-### Usage
+## Usage
 
-#### Get the shop up and running
+### Get the shop up and running
 
 1. Fork the baby-tools-shop in your github namespace.  
 
@@ -75,7 +94,7 @@ The app is now running on IP-Adress-Of-Your-VM:8025. You can use an other port t
   - Starting failed (ohhh!!!) and you see an error. You are still awesome! Only a few dependencies are missing. Just intsall them, the console shows what is missing. 
 
 
-#### Put the shop in a container and show it to the world
+### Put the shop in a container and show it to the world
 
 1. Install **Docker** globally on your server:
   - Ubuntu:  
@@ -183,37 +202,6 @@ The app is now running on IP-Adress-Of-Your-VM:8025. You can use an other port t
     `docker start name-of-your-container`  
   
 
-### Checklist
+## Checklist
 Here is a checklist that shows some important points for the containerization process:  
 <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/Checkliste_Baby_Tools_Shop.pdf">Checklist</a>
-
-
-<!-- ### Hints
-
-This section will cover some hot tips when trying to interacting with this repository:
-
-- Settings & Configuration for Django can be found in `babyshop_app/babyshop/settings.py`
-- Routing: Routing information, such as available routes can be found from any `urls.py` file in `babyshop_app` and corresponding subdirectories
-
-### Photos
-
-##### Home Page with login
-
-<img alt="" src="https://github.com/MET-DEV/Django-E-Commerce/blob/master/project_images/capture_20220323080815407.jpg"></img>
-##### Home Page with filter
-<img alt="" src="https://github.com/MET-DEV/Django-E-Commerce/blob/master/project_images/capture_20220323080840305.jpg"></img>
-##### Product Detail Page
-<img alt="" src="https://github.com/MET-DEV/Django-E-Commerce/blob/master/project_images/capture_20220323080934541.jpg"></img>
-
-##### Home Page with no login
-<img alt="" src="https://github.com/MET-DEV/Django-E-Commerce/blob/master/project_images/capture_20220323080953570.jpg"></img>
-
-
-##### Register Page
-
-<img alt="" src="https://github.com/MET-DEV/Django-E-Commerce/blob/master/project_images/capture_20220323081016022.jpg"></img>
-
-
-##### Login Page
-
-<img alt="" src="https://github.com/MET-DEV/Django-E-Commerce/blob/master/project_images/capture_20220323081044867.jpg"></img> -->
