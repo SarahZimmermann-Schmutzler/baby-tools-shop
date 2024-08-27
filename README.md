@@ -151,23 +151,37 @@ The app is now running on IP-Adress-Of-Your-VM:8025. You can use an other port t
 ```
 
 6. App works? `Dockerfile`, `.dockerignore` and `.env` are ready? Then let's build the **docker-image**:  
-  `docker build -t name-of-your-app -f Dockerfile .`
-  - `-t name-of-your-app`: the tag (name) of the container-image
+  `docker build -t name-of-your-image -f Dockerfile .`
+  - `-t name-of-your-image`: the tag (name) of the container-image
   - `-f Dockerfile .`: base of the docker-image is the Dockerfile from the current directory
 
 7. Did it work properly? Do a test run and start the container that is removed after closing:  
-  `docker run -it --rm -p 8025:5000 name-of-your-app`  
+  `docker run -it --rm -p 8025:5000 name-of-your-image`  
   - `-it`: starts an interactive session between shell and container, so we can communicate with it
   - `--rm`: removes container after closing it
   - `-p 8025:5000`: portbinding our_server:container
-  - `name-of-your-app`: reference to the container-image that we named 'demo-app'
+  - `name-of-your-image`: reference to the container-image that we named 'demo-app'
 
 8. Did it work? Let's find out with the help of the web browser:  
   - Run container from local server (pc / laptop): localhost:8025
   - Run container from VM: IP_Address_VM:8025  
   If there is an error regarding the templates, check the `settings.py` and adjust the path.
 
-9. Everything fine? Then let's start the container that keeps the database after restart and that restars automatically after an error that closes the application.
+9. Everything fine? Then let's start the container that keeps the database after restart and that restars automatically after an error that closes the application.  
+  `docker run -d --name name-of-your-container -p 8025:5000 -v /home/usr/docker/app-data:/data --restart unless-stopped name-of-your-image`  
+  - `-d`: detached mode; container runs in background
+  - `--name name-of-your-container`: you can name your container
+  - `-v /home/usr/docker/app-data:/data`: you can save the data from the database on your host server; otherwise it will be deleted after stopping the container; /directory on your host server where you store the data:/directory in the container where the data is saved
+  - `--restart unless-stopped`: container restarts always automatically except it is stopped manually
+
+10. Did it work?  
+  1. have a look which containers are running:  
+    `docker ps`  
+  2. Open the admin panel of the application in the web browser and add some data.
+  3. Stop and start the container manually, the data should be there:  
+    `docker stop name-of-your-container`  
+    `docker start name-of-your-container`  
+  
 
 ### Checklist
 Here is a checklist that shows some important points for the containerization process:  
