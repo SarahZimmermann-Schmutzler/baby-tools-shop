@@ -5,6 +5,7 @@ sources:
 * Google Translate for translation 
 
 ## Table of contents  
+* <a href="#what-is-this-all-about">What Is This All About?</a>  
 * <a href="#technologies">Technologies</a>  
     * <a href="#web-shop">Web Shop</a>  
     * <a href="#containerization">Containerization</a>  
@@ -21,6 +22,13 @@ sources:
     * <a href="#get-the-shop-up-and-running">Get the shop up and running</a>  
     * <a href="#put-the-shop-in-a-container-and-show-it-to-the-world">Put the shop in a container and show it to the world</a>  
 * <a href="#checklist">Checklist</a>
+
+## What Is This All About?  
+There are many ways to publish an application. One way is the containerization. Here you learn how to put a finished application - a web shop for baby tools -  into a container and publish it. We are working with a **Python** app here that is written with the **Django** framework. For the containerization process we will use the open source platform **Docker**.  
+First there are some information about the shop and pictures of an shop example. You get just the frame of the *BabyStore*, you have to add the products and categories by your own.  
+Then after a short definition of the containerization method there is a quickstart that shows the relevant steps.  
+After that there you can retrace the whole process of using the shop application and containerizing it.  
+In the end there is a checklist that rounds off the process.
 
 ## TECHNOLOGIES
 
