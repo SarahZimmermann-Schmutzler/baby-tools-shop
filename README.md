@@ -108,7 +108,7 @@ The app is now running on IP-Adress-Of-Your-VM:8025. You can use an other port t
 
   - It works (yeah!!!) and you see an empty store. Congrats you are awesome!
 
-  - Starting failed (ohhh!!!) and you see an error. You are still awesome! Only a few dependencies are missing. Just intsall them, the console shows what is missing. 
+  - Starting failed (ohhh!!!) and you see an error. You are still awesome! Only a few dependencies are missing. Just install them, the console shows what is missing. 
 
 
 ### Put the shop in a container and show it to the world
@@ -122,7 +122,7 @@ The app is now running on IP-Adress-Of-Your-VM:8025. You can use an other port t
   OR  
   check docker status: `sudo systemctl status docker`
 
-2. Write a **Dockerfile**. It's a so called conatiner-image, and thus the base of the container:  
+2. Write a **Dockerfile**. It's the structure of a so called container-image, and thus the base of the container:  
 ``` Dockerfile
     #base frame of our container-image
     FROM python:3.10-alpine
@@ -186,17 +186,17 @@ The app is now running on IP-Adress-Of-Your-VM:8025. You can use an other port t
   __pycache__/
 ```
 
-6. App works? `Dockerfile`, `.dockerignore` and `.env` are ready? Then let's build the **docker-image**:  
+6. The application works? `Dockerfile`, `.dockerignore` and `.env` are ready? Then let's build the **docker-image**:  
   `docker build -t name-of-your-image -f Dockerfile .`
   - `-t name-of-your-image`: the tag (name) of the container-image
   - `-f Dockerfile .`: base of the docker-image is the Dockerfile from the current directory
 
-7. Did it work properly? Do a test run and start the container that is removed after closing:  
+7. Did it work properly? Do a test run and start a container that is removed after closing:  
   `docker run -it --rm -p 8025:5000 name-of-your-image`  
   - `-it`: starts an interactive session between shell and container, so we can communicate with it
   - `--rm`: removes container after closing it
   - `-p 8025:5000`: portbinding our_server:container
-  - `name-of-your-image`: reference to the container-image that we named 'demo-app'
+  - `name-of-your-image`: reference to the container-image that we named 'name-of-your-image'
 
 8. Did it work? Let's find out with the help of the web browser:  
   - Run container from local server (pc / laptop): localhost:8025
