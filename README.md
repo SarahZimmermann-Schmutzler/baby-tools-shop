@@ -31,10 +31,11 @@ sources:
 
 ### Containerization
 - Docker
+- dotenv
 
 ## BabyStore - The Baby Tools Shop
 
-After your setup the application is a Python and Django based web shop, that offers products (baby tools) to potential buyers. It includes a detail-view of the products, an register and login option for the buyers. 
+The application is based on Python and Django. After your setup it is a web shop, that offers products (baby tools) to potential buyers. It includes a detail-view of the products, an register and login option for the buyers. 
 
 You get the empty web shop frame which you can fill - with help of the django admin panel - with categories and matching products that then appeares in the shop.
 
@@ -58,21 +59,21 @@ You get the empty web shop frame which you can fill - with help of the django ad
 
 ## What is Containerization?
 
-The shop is ready and pretty and you further developed the application. But now what? 
+You can make the shop ready and pretty and you can further develope the application. But then what? 
 
 One way to release the shop is the method of **CONTAINERIZATION**. There you put the application with its dependencies in a closed environment called container. The container can be made to run on any server, for example a virtual machine. One provider of this containerization process is **Docker**.
 
 ## Quickstart
 
-0. Have a look in the Checklist to get a feeling what is needed.
+0. Have a look in the checklist to get a feeling what is needed.
 1. Fork and clone the babyshop-project on the server you want to work on or you want to run the containerization.
 2. Get the application up an running, freeze new dependencies in the `requirements.txt`.
-3. Install **Docker** globally and **dotenv** for the project.
-4. Write the `Dockerfile` which is the structure of the container-image.
-5. Write the script `supe.py`  for the costumized management command and the `.env` where the sensitive data is hidden, that create together automatically a superuser after starting the container.
+3. Install **Docker** globally and **dotenv** for the shop-application.
+4. Write the `Dockerfile` which is the structure of the container-image which is the base of the container.
+5. Write the script `supe.py` for the costumized management command and the `.env` where the sensitive data is hidden, that create together automatically a superuser after starting the container.
 6. Write a `.dockerignore` that contains the directories that should not be transferred to the container.
 7. Build the container-image.
-8. Run a container-test-start and have a look if the image-setup is wright and the application is working as it should be.
+8. Run a container-test-start and have a look if the image-setup is right and the application is working as it should be.
 9. Start the container with automatic restart and persistent data saving.
 10. Set up the shop with products and run some tests if the data is there after a restart.
 
@@ -94,7 +95,7 @@ One way to release the shop is the method of **CONTAINERIZATION**. There you put
 
 5. Take a look at the `settings.py` and add your VMs IP-Adress to the `Allowed Hosts`.
 
-6. Don't forget to save your addings on github.You can use the up.bat file:
+6. Don't forget to save your addings on github. You can use the up.bat file:
   - up + name_of_change_without_question_marks  
     `up new allowed host`
 
