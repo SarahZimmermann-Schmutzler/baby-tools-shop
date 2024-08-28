@@ -8,18 +8,18 @@ sources:
 * <a href="#technologies">Technologies</a>  
     * <a href="#web-shop">Web Shop</a>  
     * <a href="#containerization">Containerization</a>  
-* <a href="#babystore">BabyStore - The Baby Tools Shop</a>  
-    * <a href="#example">Shop Example</a>  
+* <a href="#babystore-the-baby-tools-shop">BabyStore - The Baby Tools Shop</a>  
+    * <a href="#shop-example">Shop Example</a>  
       * <a href="#homepage">Homepage</a>  
-      * <a href="#category">Category "Baby Care" and Logged User</a>  
-      * <a href="#detail-view">Product Detail View</a>  
-      * <a href="#register">Register Page</a>  
-      * <a href="#login">Login Page</a>  
-* <a href="#what-is">What is Containerization?</a>  
+      * <a href="#category-baby-care-and-logged-user">Category "Baby Care" and Logged User</a>  
+      * <a href="#product-detail-view">Product Detail View</a>  
+      * <a href="#register-page">Register Page</a>  
+      * <a href="#login-page">Login Page</a>  
+* <a href="#what-is-containerization">What is Containerization?</a>  
 * <a href="#quickstart">Quickstart</a>  
 * <a href="#usage">Usage</a>  
-    * <a href="#run-shop">Get the shop up and running</a>  
-    * <a href="#containerize-shop">Put the shop in a container and show it to the world</a>  
+    * <a href="#get-the-shop-up-and-running">Get the shop up and running</a>  
+    * <a href="#put-the-shop-in-a-container-and-show-it-to-the-world">Put the shop in a container and show it to the world</a>  
 * <a href="#checklist">Checklist</a>
 
 ## TECHNOLOGIES
