@@ -8,7 +8,7 @@ sources:
 * <a href="#technologies">Technologies</a>  
     * <a href="#web-shop">Web Shop</a>  
     * <a href="#containerization">Containerization</a>  
-* <a href="#babystore-the-baby-tools-shop">BabyStore - The Baby Tools Shop</a>  
+* <a href="#babystore---the-baby-tools-shop">BabyStore - The Baby Tools Shop</a>  
     * <a href="#shop-example">Shop Example</a>  
       * <a href="#homepage">Homepage</a>  
       * <a href="#category-baby-care-and-logged-user">Category "Baby Care" and Logged User</a>  
