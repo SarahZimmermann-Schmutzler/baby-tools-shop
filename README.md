@@ -7,17 +7,20 @@ sources:
 ## Table of contents  
 * <a href="#technologies">Technologies</a>  
     * <a href="#web-shop">Web Shop</a>  
-    <a href="#containerization">Containerization</a>  
-* <a href="#what-exactly-is">The Login</a>  
-    * <a href="#create-a-ssh-key-for-your-local-server">Create a SSH-Key for your local server</a>  
-    * <a href="#store-the-ssh-key-on-your-vm">Store the SSH-Key on your VM</a>  
-    * <a href="#deactivate-the-possibility-to-login-with-a-password">Deactivate the possibility to login with a password</a>  
-    * <a href="#alias-the-ssh-connection">Alias the SSH connection</a>  
-    * <a href="#ssh-config-for-several-identities">SSH config for several identities</a>  
-* <a href="#the-web-server-nginx">The web server - Nginx</a>  
-    * <a href="#install-and-activate-nginx">Install and activate Nginx</a>  
-    * <a href="#configurate-nginx">Configurate Nginx</a>  
-* <a href="#the-checklist">The Checklist</a>
+    * <a href="#containerization">Containerization</a>  
+* <a href="#babystore">BabyStore - The Baby Tools Shop</a>  
+    * <a href="#example">Shop Example</a>  
+      * <a href="#homepage">Homepage</a>  
+      * <a href="#category">Category "Baby Care" and Logged User</a>  
+      * <a href="#detail-view">Product Detail View</a>  
+      * <a href="#register">Register Page</a>  
+      * <a href="#login">Login Page</a>  
+* <a href="#what-is">What is Containerization?</a>  
+* <a href="#quickstart">Quickstart</a>  
+* <a href="#usage">Usage</a>  
+    * <a href="#run-shop">Get the shop up and running</a>  
+    * <a href="#containerize-shop">Put the shop in a container and show it to the world</a>  
+* <a href="#checklist">Checklist</a>
 
 ## TECHNOLOGIES
 
@@ -59,6 +62,19 @@ The shop is ready and pretty and you further developed the application. But now 
 
 One way to release the shop is the method of **CONTAINERIZATION**. There you put the application with its dependencies in a closed environment called container. The container can be made to run on any server, for example a virtual machine. One provider of this containerization process is **Docker**.
 
+## Quickstart
+
+0. Have a look in the Checklist to get a feeling what is needed.
+1. Fork and clone the babyshop-project on the server you want to work on or you want to run the containerization.
+2. Get the application up an running, freeze new dependencies in the `requirements.txt`.
+3. Install **Docker** globally and **dotenv** for the project.
+4. Write the `Dockerfile` which is the structure of the container-image.
+5. Write the script `supe.py`  for the costumized management command and the `.env` where the sensitive data is hidden, that create together automatically a superuser after starting the container.
+6. Write a `.dockerignore` that contains the directories that should not be transferred to the container.
+7. Build the container-image.
+8. Run a container-test-start and have a look if the image-setup is wright and the application is working as it should be.
+9. Start the container with automatic restart and persistent data saving.
+10. Set up the shop with products and run some tests if the data is there after a restart.
 
 ## Usage
 
