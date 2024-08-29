@@ -84,15 +84,15 @@ The key points of the procedure are listed below. The detailed version can be fo
 
 4. Create the <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/Dockerfile">`Dockerfile`</a> that contains the instructions for the container-image build process and defines the base of the container.
 
-5. The procedure presented here uses a customized python management command in the `Dockerfile`. To make it work there has to be a script that defines the command: <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/babyshop_app/products/management/commands/createsupe.py">`supe.py`</a> and a `.env`-file where sensitive data is hidden. Both files together create automatically a superuser after starting the container.
+5. The procedure presented here uses a customized python management command in the `Dockerfile`. To make it work there has to be a script that defines the command: <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/babyshop_app/products/management/commands/createsupe.py">`supe.py`</a> and an `.env`-file where sensitive data is hidden. Both files together create automatically a superuser after starting the container.
 
-6. Also a <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/.dockerignore">`.dockerignore`</a> -file is needed that contains the directories that should not be transferred to the container.
+6. Also a <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/.dockerignore">`.dockerignore`</a> is needed that contains the directories that should not be transferred to the container.
 
 7. Build the container-image:  
   `docker build -t name-of-your-image -f Dockerfile .`
 
 8. Run a container-test-start and have a look if the image-setup is right and the application is working as it should be:  
-  `docker run -it --rm -p 8025:5000 name-of-your-image`
+  `docker run -it --rm -p port-of-host-server:container-port name-of-your-image`
 
 9. Start the container with automatic restart and persistent data saving:  
   `docker run -d --name name-of-your-container -p 8025:5000 -v /home/usr/docker/app-data:/data --restart unless-stopped name-of-your-image`
@@ -114,7 +114,7 @@ The key points of the procedure are listed below. The detailed version can be fo
     `python3 -m venv env`  
     `source env/bin/activate`
 
-4. Install the *requirements.txt*:
+4. Install the requirements:
     `pip install -r requirements.txt`
 
 5. Take a look at the `settings.py` and add your VMs IP-Adress to the `Allowed Hosts`.
@@ -124,15 +124,17 @@ The key points of the procedure are listed below. The detailed version can be fo
     `up new allowed host`
 
 7. Try to start the application:
-  - For running BabyStore on your local server (pc / laptop):`python manage.py runserver`
-Just follow the link then. It opens in your web server on localhost 8000.
+  - For running BabyStore on your local server (pc / laptop):  
+  `python manage.py runserver`  
+  Just follow the link then. It opens in your web server on localhost 8000.
 
-  - For starting the application from your virtual environment: `python manage.py runserver 0.0.0.0:8025`
-The app is now running on IP-Adress-Of-Your-VM:8025. You can use an other port than 8025 of course.
+  - For starting the application from your virtual environment:  
+    `python manage.py runserver 0.0.0.0:8025`  
+    (You can use an other port than 8025 of course)
 
-  - It works (yeah!!!) and you see an empty store. Congrats you are awesome!
+  - a: The app is now running on: IP-Adress-Of-Your-VM:8025. You see an empty store? Then it works (yeah!!!). Congrats you are awesome!
 
-  - Starting failed (ohhh!!!) and you see an error. You are still awesome! Only a few dependencies are missing. Just install them, the console shows what is missing. 
+  - b: Starting failed (ohhh!!!) and you see an error. You are still awesome! Only a few dependencies are missing. Just install them, the console shows what is missing. 
 
 
 ### Put the shop in a container and show it to the world
@@ -146,63 +148,18 @@ The app is now running on IP-Adress-Of-Your-VM:8025. You can use an other port t
   OR  
   check docker status: `sudo systemctl status docker`
 
-2. Create a **Dockerfile**. It's the structure of a so called container-image, and thus the base of the container:  
-``` Dockerfile
-    #base frame of our container-image
-    FROM python:3.10-alpine
+2. Create a **Dockerfile**. It's the structure of a so called container-image, and thus the base of the container:
+  - <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/Dockerfile">Link to `Dockerfile`</a>
 
-     #directoty in the container that contains all files/assets of the project 
-     WORKDIR /app
+3. Add the *supe-script* that is used in the **Dockerfile** to create a superuser non-interactively so you can interact with the django admin panel when the shop app is running. Put it in: `baby-tools-shop/products/management/commands/createsupe.py`:
+  - <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/babyshop_app/products/management/commands/createsupe.py">Link to `supe.py`</a>
 
-    #copies the files of the current folder from the host in the /app-directory of the container during build process 
-    COPY . $WORKDIR
-
-    #installs the dependencies for the app and that are saved in the requirements.txt
-    RUN python -m pip install -r requirements.txt
-
-    #opens container port 5000 for interaction
-    EXPOSE 5000
-
-    #command that runs automatically every time the container is started. the command *python babyshop_app/manage.py createsupe* is a custumized command that opens the script *createsupe.py*.
-    ENTRYPOINT ["/bin/sh", "-c", "python babyshop_app/manage.py migrate && python babyshop_app/manage.py createsupe && python babyshop_app/manage.py runserver 0.0.0.0:5000"]
-```
-
-3. Add the *supe-script* that is used in the **Dockerfile** to create a superuser non-interactively so you can interact with the django admin panel when the shop app is running. Put it in: `baby-tools-shop/products/management/commands/createsupe.py`:  
-
-    ```python
-    from django.core.management.base import BaseCommand
-    from django.contrib.auth.models import User
-    import dotenv
-    import os
-
-    class Command(BaseCommand):
-        help = 'Create a superuser non-interactively'
-
-        def handle(self, *args, **options):
-            # load .env-file
-            dotenv.load_dotenv()
-
-            # load values from .env-file
-            username = os.environ.get('SUPERUSER_USERNAME')
-            email = os.environ.get('SUPERUSER_EMAIL')
-            password = os.environ.get('SUPERUSER_PASSWORD')
-
-            if not username or not email or not password:
-                self.stdout.write(self.style.ERROR('Superuser credentials are missing in the .env file.'))
-                return
-
-            if not User.objects.filter(username=username).exists():
-             User.objects.create_superuser(username=username, email=email, password=password)
-                self.stdout.write(self.style.SUCCESS(f'Superuser "{username}" created successfully!'))
-            else:
-                self.stdout.write(self.style.WARNING(f'Superuser "{username}" already exists.'))
-    ```
-4. Work with **dotenv** to keep sensitive data secret:  
+4. Work with **python-dotenv** to keep sensitive data secret:  
   `pip install python-dotenv`  
   `pip freeze > requirements.txt`  
-  - Then create a dotenv-file `.env` in the main directory where the key-value-pairs are saved. Do not push it on github! Just write a new .env on the server you run the containerized application.
+  - Then create an`.env`-file in the main directory where the key-value-pairs are saved. Do not push it on github! Just write a new .env on the server you run the containerized application.
 
-5. Add an dockerignore-file `.dockerignore` to the main directory that contains the directories that should not be copied to the container.  
+5. Add a dockerignore-file `.dockerignore` to the main directory that contains the directories that should not be copied to the container. The content could look like that:  
 
 ```
   .gitignore
