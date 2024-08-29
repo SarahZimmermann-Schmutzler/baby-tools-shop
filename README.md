@@ -30,22 +30,22 @@ Then after a short definition of the containerization method there is a quicksta
 After that there you can retrace the whole process of using the shop application and containerizing it.  
 In the end there is a checklist that rounds off the process.
 
-## TECHNOLOGIES
+## Technologies
 
 ### Web Shop
 - Python 3.9
 - Django 4.0.2
 - Venv
+- python-dotenv
 
 ### Containerization
 - Docker
-- dotenv
 
 ## BabyStore - The Baby Tools Shop
 
-The application is based on Python and Django. After your setup it is a web shop, that offers products (baby tools) to potential buyers. It includes a detail-view of the products, an register and login option for the buyers. 
+The application is based on Python and Django. After the setup it is a web shop, that offers products (baby tools) to potential buyers. It includes a detail-view of the products, an register and login option for the buyers. 
 
-You get the empty web shop frame which you can fill - with help of the django admin panel - with categories and matching products that then appeares in the shop.
+The application provides the empty web shop frame that then needs to be filled with categories and matching products that then appeares in the shop. This data is created and managed via the django admin panel.  
 
 ### Shop Example
 
@@ -67,11 +67,12 @@ You get the empty web shop frame which you can fill - with help of the django ad
 
 ## What is Containerization?
 
-You can make the shop ready and pretty and you can further develope the application. But then what? 
+The shop is ready and pretty and further developed. But then what? 
 
-One way to release the shop is the method of **CONTAINERIZATION**. There you put the application with its dependencies in a closed environment called container. The container can be made to run on any server, for example a virtual machine. One provider of this containerization process is **Docker**.
+One way to release the shop is the method of **CONTAINERIZATION**. In this case the application and its dependencies is packed in a closed environment called containerin. This container can be made to run on any server, for example a virtual machine. To operate a container you need to install a container runtime. The one that is used in this project is called **Docker**.
 
-## Quickstart
+## Quickstart  
+The key points of the procedure are listed below. The detailed version can be found in chapter <a href="#usage">Usage</a>.
 
 0. Have a look in the checklist to get a feeling what is needed.
 1. Fork and clone the babyshop-project on the server you want to work on or you want to run the containerization.
