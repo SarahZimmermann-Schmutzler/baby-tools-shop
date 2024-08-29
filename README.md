@@ -76,15 +76,25 @@ The key points of the procedure are listed below. The detailed version can be fo
 
 0. Have a look in the checklist to get a feeling what is needed.
 1. Fork and clone the babyshop-project on the server you want to work on or you want to run the containerization.
-2. Get the application up an running, freeze new dependencies in the `requirements.txt`.
-3. Install **Docker** globally and **dotenv** for the shop-application.
-4. Write the `Dockerfile` which is the structure of the container-image which is the base of the container.
-5. Write the script `supe.py` for the costumized management command and the `.env` where the sensitive data is hidden, that create together automatically a superuser after starting the container.
-6. Write a `.dockerignore` that contains the directories that should not be transferred to the container.
-7. Build the container-image.
-8. Run a container-test-start and have a look if the image-setup is right and the application is working as it should be.
-9. Start the container with automatic restart and persistent data saving.
-10. Set up the shop with products and run some tests if the data is there after a restart.
+2. Get the application up an running and freeze new dependencies in the `requirements.txt`. <a href="get-the-shop-up-and-running">This section shows how to do it</a> .
+3. Install the container runtime <a href="https://docs.docker.com/get-started/get-docker/">**Docker**</a> globally and <a href="https://pypi.org/project/python-dotenv/">**python-dotenv**</a> within the shop-application. It is needed for the environment variables. 
+4. Create the <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/Dockerfile">`Dockerfile`</a> that contains the instructions for the container-image build process and defines the base of the container.
+5. The procedure presented here uses a customized python management command in the `Dockerfile`. To make it work there has to be a script that defines the command <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/babyshop_app/products/management/commands/createsupe.py">`supe.py`</a> and a `.env`-file where sensitive data is hidden. Both files together create automatically a superuser after starting the container.
+6. Also a `.dockerignore`-file is needed that contains the directories that should not be transferred to the container.  
+```
+  .gitignore
+  .git/
+  __pycache__/
+```
+7. Build the container-image:  
+  `docker build -t name-of-your-image -f Dockerfile .`
+8. Run a container-test-start and have a look if the image-setup is right and the application is working as it should be.  
+  `docker run -it --rm -p 8025:5000 name-of-your-image`
+9. Start the container with automatic restart and persistent data saving.  
+  `docker run -d --name name-of-your-container -p 8025:5000 -v /home/usr/docker/app-data:/data --restart unless-stopped name-of-your-image`
+10. Set up the shop with products. Then stop and start the container manually. Now have a look in the web browser if the data is there after the restart.  
+  `docker stop name-of-your-container`  
+  `docker start name-of-your-container`
 
 ## Usage
 
@@ -131,7 +141,7 @@ The app is now running on IP-Adress-Of-Your-VM:8025. You can use an other port t
   OR  
   check docker status: `sudo systemctl status docker`
 
-2. Write a **Dockerfile**. It's the structure of a so called container-image, and thus the base of the container:  
+2. Create a **Dockerfile**. It's the structure of a so called container-image, and thus the base of the container:  
 ``` Dockerfile
     #base frame of our container-image
     FROM python:3.10-alpine
