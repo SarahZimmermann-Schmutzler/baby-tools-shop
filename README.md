@@ -28,7 +28,7 @@ There are many ways to publish an application. One way is the containerization. 
 First there are some information about the shop and pictures of an shop example. You get just the frame of the *BabyStore*. Products and categories must be added independently.  
 Then after a short definition of the containerization method there is a quickstart that shows the relevant steps.  
 After that there you can retrace the whole process of using the shop application and containerizing it.  
-In the end there is a checklist that rounds off the process.
+In the end you find a checklist that rounds off the process.
 
 ## Technologies
 
@@ -76,33 +76,33 @@ The key points of the procedure are listed below. The detailed version can be fo
 
 0. Have a look in the checklist to get a feeling what is needed.
 
-1. Fork and clone the babyshop-project on the server you want to work on or you want to run the containerization.
+1. Fork and clone the babyshop-project on the server you want to work on or you want to run the container.
 
 2. Get the application up an running and freeze new dependencies in the <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/requirements.txt">`requirements.txt`</a>. <a href="#get-the-shop-up-and-running">This section shows how to do it</a>.
 
 3. Install the container runtime <a href="https://docs.docker.com/get-started/get-docker/">**Docker**</a> globally and <a href="https://pypi.org/project/python-dotenv/">**python-dotenv**</a> within the shop-application. It is needed for the environment variables. 
 
-4. Create the <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/Dockerfile">`Dockerfile`</a> that contains the instructions for the container-image build process and defines the base of the container.
+4. Create the <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/Dockerfile">`Dockerfile`</a> that contains the instructions for the container-image build process and also defines the base of the container.
 
-5. The procedure presented here uses a customized python management command in the `Dockerfile`. To make it work there has to be a script that defines the command: <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/babyshop_app/products/management/commands/createsupe.py">`supe.py`</a> and an `.env`-file where sensitive data is hidden. Both files together create automatically a superuser after starting the container.  
+5. The procedure presented here uses a customized python management command in the `Dockerfile`. To make it work there has to be a script that defines the command: <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/babyshop_app/products/management/commands/createsupe.py">`supe.py`</a>. Together with an `.env`-file, where sensitive data is hidden, it creates automatically a superuser after starting the container.  
   ```
   SUPERUSER_USERNAME=hello_my_name_is
   SUPERUSER_EMAIL=hello@mail.com
   SUPERUSER_PASSWORD=hello_i_am_superuser_password
   ```
 
-6. Also a <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/.dockerignore">`.dockerignore`</a> is needed that contains the directories that should not be transferred to the container.
+6. Also a <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/.dockerignore">`.dockerignore`</a>  that contains the directories that should not be transferred to the container is needed.
 
 7. Build the container-image:  
   `docker build -t name-of-your-image -f Dockerfile .`
 
-8. Run a container-test-start and have a look if the image-setup is right and the application is working as it should be:  
+8. Run a container-test and have a look if the image-setup is right and the application is working as it should be:  
   `docker run -it --rm -p port-of-host-server:container-port name-of-your-image`
 
 9. Start the container with automatic restart and persistent data saving:  
   `docker run -d --name name-of-your-container -p 8025:5000 -v /home/usr/docker/app-data:/data --restart unless-stopped name-of-your-image`
 
-10. Set up the shop with products. Then stop and start the container manually. Now have a look in the web browser if the data is there after the restart:  
+10. Set up the shop with products. Then stop and start the container manually. After that have a look in the web browser if the data is there after the restart:  
   `docker stop name-of-your-container`  
   `docker start name-of-your-container`
 
@@ -124,10 +124,10 @@ The key points of the procedure are listed below. The detailed version can be fo
 
 5. Take a look at the `settings.py` and add your VMs IP-Adress to the `Allowed Hosts`.
 
-6. Don't forget to save your addings on github. You can use the up.bat file but at your own risk:
+6. Don't forget to save your addings on github. You can use the provided up.bat-file but at your own risk:
   - up + name_of_change_without_question_marks  
     `up new allowed host`  
->>i: The command `git add .` adds all changes to your repository without checking the affected files or changes. Incorrect or unsafe changes may be checked in, which could cause problems in the project. Sensitive data such as passwords, API keys or configuration files could become publicly accessible. The absence of the command `git pull` at the beginning of the file represents a risk of overwriting changes made by other developers. That can lead to data loss or integrity problems in the code.
+>>i: The command `git add .` adds all changes to your repository without checking the affected files or changes. Incorrect or unsafe changes may be checked in, which could cause problems in the project. Sensitive data such as passwords, API keys or configuration files could become publicly accessible. The absence of the command `git pull` at the beginning of the file represents a risk of overwriting changes made by other developers or made on other servers (laptop and VM). That can lead to data loss or integrity problems in the code.
 
 7. Try to start the application:
   - For running BabyStore on your local server (pc / laptop):  
