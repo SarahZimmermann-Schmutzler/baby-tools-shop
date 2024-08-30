@@ -138,7 +138,7 @@ The key points of the procedure are listed below. The detailed version can be fo
     `python manage.py runserver 0.0.0.0:8025`  
     (You can use an other port than 8025 of course)
 
-  - a: The app is now running on: IP-Adress-Of-Your-VM:8025. You see an empty store? Then it works (yeah!!!). Congrats you are awesome!
+  - a: The app is now running on IP-Adress-Of-Your-VM:8025. You see an empty store? Then it works (yeah!!!). Congrats you are awesome!
 
   - b: Starting failed (ohhh!!!) and you see an error. You are still awesome! Only a few dependencies are missing. Just install them, the console shows what is missing. 
 
