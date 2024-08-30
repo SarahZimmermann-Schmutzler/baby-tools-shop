@@ -132,7 +132,7 @@ The key points of the procedure are listed below. The detailed version can be fo
 7. Try to start the application:
   - For running BabyStore on your local server (pc / laptop):  
   `python manage.py runserver`  
-  Just follow the link then. It opens in your web server on localhost 8000.
+  Just follow the link then. It opens in your web server on localhost:8000.
 
   - For starting the application from your virtual environment:  
     `python manage.py runserver 0.0.0.0:8025`  
