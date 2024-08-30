@@ -24,8 +24,8 @@ sources:
 * <a href="#checklist">Checklist</a>
 
 ## What Is This All About?  
-There are many ways to publish an application. One way is the containerization. Here you learn how to put a finished application - a web shop for baby tools -  into a container and publish it. We are working with a **Python** app here that is written with the **Django** framework. For the containerization process we will use the open source platform **Docker**.  
-First there are some information about the shop and pictures of an shop example. You get just the frame of the *BabyStore*, you have to add the products and categories by your own.  
+There are many ways to publish an application. One way is the containerization. Here you learn how to put a finished application - a web shop for baby tools -  into a container and publish it. The base of this project is a **Python** app that is written with the **Django** framework. The open source platform **Docker** is used for the containerization process.  
+First there are some information about the shop and pictures of an shop example. You get just the frame of the *BabyStore*. Products and categories must be added independently.  
 Then after a short definition of the containerization method there is a quickstart that shows the relevant steps.  
 After that there you can retrace the whole process of using the shop application and containerizing it.  
 In the end there is a checklist that rounds off the process.
@@ -45,7 +45,7 @@ In the end there is a checklist that rounds off the process.
 
 The application is based on Python and Django. After the setup it is a web shop, that offers products (baby tools) to potential buyers. It includes a detail-view of the products, an register and login option for the buyers. 
 
-The application provides the empty web shop frame that then needs to be filled with categories and matching products that then appeares in the shop. This data is created and managed via the django admin panel.  
+The application provides the empty web shop frame. It needs to be filled with categories and matching products that then appeares in the shop. This data is created and managed via the django admin panel.  
 
 ### Shop Example
 
@@ -69,7 +69,7 @@ The application provides the empty web shop frame that then needs to be filled w
 
 The shop is ready and pretty and further developed. But then what? 
 
-One way to release the shop is the method of **CONTAINERIZATION**. In this case the application and its dependencies is packed in a closed environment called containerin. This container can be made to run on any server, for example a virtual machine. To operate a container you need to install a container runtime. The one that is used in this project is called **Docker**.
+One way to release the shop is the method of **CONTAINERIZATION**. In this case the application and its dependencies is packed in a closed environment called container. This container can be made to run on any server, for example a virtual machine. To operate a container you need to install a so called container runtime. The one that is used in this project is **Docker**.
 
 ## Quickstart  
 The key points of the procedure are listed below. The detailed version can be found in chapter <a href="#usage">Usage</a>.
