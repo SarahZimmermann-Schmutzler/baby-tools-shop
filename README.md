@@ -84,7 +84,12 @@ The key points of the procedure are listed below. The detailed version can be fo
 
 4. Create the <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/Dockerfile">`Dockerfile`</a> that contains the instructions for the container-image build process and defines the base of the container.
 
-5. The procedure presented here uses a customized python management command in the `Dockerfile`. To make it work there has to be a script that defines the command: <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/babyshop_app/products/management/commands/createsupe.py">`supe.py`</a> and an `.env`-file where sensitive data is hidden. Both files together create automatically a superuser after starting the container.
+5. The procedure presented here uses a customized python management command in the `Dockerfile`. To make it work there has to be a script that defines the command: <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/babyshop_app/products/management/commands/createsupe.py">`supe.py`</a> and an `.env`-file where sensitive data is hidden. Both files together create automatically a superuser after starting the container.  
+  ```
+  SUPERUSER_USERNAME=hello_my_name_is
+  SUPERUSER_EMAIL=hello@mail.com
+  SUPERUSER_PASSWORD=hello_i_am_superuser_password
+  ```
 
 6. Also a <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/.dockerignore">`.dockerignore`</a> is needed that contains the directories that should not be transferred to the container.
 
@@ -119,9 +124,10 @@ The key points of the procedure are listed below. The detailed version can be fo
 
 5. Take a look at the `settings.py` and add your VMs IP-Adress to the `Allowed Hosts`.
 
-6. Don't forget to save your addings on github. You can use the up.bat file:
+6. Don't forget to save your addings on github. You can use the up.bat file but at your own risk:
   - up + name_of_change_without_question_marks  
-    `up new allowed host`
+    `up new allowed host`  
+>>i: The command `git add .` adds all changes to your repository without checking the affected files or changes. Incorrect or unsafe changes may be checked in, which could cause problems in the project. Sensitive data such as passwords, API keys or configuration files could become publicly accessible. The absence of the command `git pull` at the beginning of the file represents a risk of overwriting changes made by other developers. That can lead to data loss or integrity problems in the code.
 
 7. Try to start the application:
   - For running BabyStore on your local server (pc / laptop):  
@@ -157,7 +163,12 @@ The key points of the procedure are listed below. The detailed version can be fo
 4. Work with **python-dotenv** to keep sensitive data secret:  
   `pip install python-dotenv`  
   `pip freeze > requirements.txt`  
-  - Then create an`.env`-file in the main directory where the key-value-pairs are saved. Do not push it on github! Just write a new .env on the server you run the containerized application.
+  - Then create an`.env`-file in the main directory where the key-value-pairs are saved. Do not push it on github! Just write a new .env on the server you run the containerized application.  
+  ```
+  SUPERUSER_USERNAME=hello_my_name_is
+  SUPERUSER_EMAIL=hello@mail.com
+  SUPERUSER_PASSWORD=hello_i_am_superuser_password
+  ```
 
 5. Add a dockerignore-file `.dockerignore` to the main directory that contains the directories that should not be copied to the container. The content could look like that:  
 
