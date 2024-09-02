@@ -80,7 +80,7 @@ The key points of the procedure are listed below. The detailed version can be fo
 
 2. Get the application up an running and freeze new dependencies in the <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/requirements.txt">`requirements.txt`</a>. <a href="#get-the-shop-up-and-running">This section shows how to do it</a>.
 
-3. Install the container runtime <a href="https://docs.docker.com/get-started/get-docker/">**Docker**</a> globally and <a href="https://pypi.org/project/python-dotenv/">**python-dotenv**</a> within the shop-application. It is needed for the environment variables. 
+3. Install the container runtime <a href="https://docs.docker.com/get-started/get-docker/">**Docker**</a> globally and <a href="https://pypi.org/project/python-dotenv/">**python-dotenv**</a> within the shop-application. It is needed to handle environment variables easily. 
 
 4. Create the <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/Dockerfile">`Dockerfile`</a> that contains the instructions for the container-image build process and also defines the base of the container.
 
@@ -160,9 +160,9 @@ The key points of the procedure are listed below. The detailed version can be fo
 3. Add the *supe-script* that is used in the **Dockerfile** to create a superuser non-interactively so you can interact with the django admin panel when the shop app is running. Put it in: `baby-tools-shop/products/management/commands/createsupe.py`:
   - <a href="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/babyshop_app/products/management/commands/createsupe.py">Link to `supe.py`</a>
 
-4. Work with **python-dotenv** to keep sensitive data secret:  
+4. Work with **python-dotenv** to handle environment variables:  
   `pip install python-dotenv`  
-  `pip freeze > requirements.txt`  
+    
   - Then create an`.env`-file in the main directory where the key-value-pairs are saved. Do not push it on github! Just write a new .env on the server you run the containerized application.  
   ```
   SUPERUSER_USERNAME=hello_my_name_is
