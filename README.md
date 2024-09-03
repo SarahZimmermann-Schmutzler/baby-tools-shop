@@ -9,6 +9,7 @@ sources:
 * <a href="#technologies">Technologies</a>  
     * <a href="#web-shop">Web Shop</a>  
     * <a href="#containerization">Containerization</a>  
+* <a href="#quickstart">Quickstart</a>    
 * <a href="#babystore---the-baby-tools-shop">BabyStore - The Baby Tools Shop</a>  
     * <a href="#shop-example">Shop Example</a>  
       * <a href="#homepage">Homepage</a>  
@@ -17,7 +18,6 @@ sources:
       * <a href="#register-page">Register Page</a>  
       * <a href="#login-page">Login Page</a>  
 * <a href="#what-is-containerization">What is Containerization?</a>  
-* <a href="#quickstart">Quickstart</a>  
 * <a href="#usage">Usage</a>  
     * <a href="#get-the-shop-up-and-running">Get the shop up and running</a>  
     * <a href="#put-the-shop-in-a-container-and-show-it-to-the-world">Put the shop in a container and show it to the world</a>  
@@ -41,40 +41,8 @@ In the end you find a checklist that rounds off the process.
 ### Containerization
 - Docker
 
-## BabyStore - The Baby Tools Shop
-
-The application is based on Python and Django. After the setup it is a web shop, that offers products (baby tools) to potential buyers. It includes a detail-view of the products, an register and login option for the buyers. 
-
-The application provides the empty web shop frame. It needs to be filled with categories and matching products that then appeares in the shop. This data is created and managed via the django admin panel.  
-
-### Shop Example
-
-#### Homepage
-<img alt="" src="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/project_images/homepage.png"></img>
-
-#### Category "Baby Care" and Logged User
-<img alt="" src="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/project_images/cat_logged.png"></img>
-
-#### Product Detail View
-<img alt="" src="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/project_images/details.png"></img>
-
-#### Register Page
-<img alt="" src="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/project_images/register.png"></img>
-
-#### Login Page
-<img alt="" src="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/project_images/login.png"></img>
-
-
-## What is Containerization?
-
-The shop is ready and pretty and further developed. But then what? 
-
-One way to release the shop is the method of **CONTAINERIZATION**. In this case the application and its dependencies is packed in a closed environment called container. This container can be made to run on any server, for example a virtual machine. To operate a container you need to install a so called container runtime. The one that is used in this project is **Docker**.
-
 ## Quickstart  
 The key points of the procedure are listed below. The detailed version can be found in chapter <a href="#usage">Usage</a>.
-
-0. Have a look in the checklist to get a feeling what is needed.
 
 1. Fork and clone the babyshop-project on the server you want to work on or you want to run the container.
 
@@ -105,6 +73,36 @@ The key points of the procedure are listed below. The detailed version can be fo
 10. Set up the shop with products. Then stop and start the container manually. After that have a look in the web browser if the data is there after the restart:  
   `docker stop name-of-your-container`  
   `docker start name-of-your-container`
+
+## BabyStore - The Baby Tools Shop
+
+The application is based on Python and Django. After the setup it is a web shop, that offers products (baby tools) to potential buyers. It includes a detail-view of the products, an register and login option for the buyers. 
+
+The application provides the empty web shop frame. It needs to be filled with categories and matching products that then appeares in the shop. This data is created and managed via the django admin panel.  
+
+### Shop Example
+
+#### Homepage
+<img alt="" src="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/project_images/homepage.png"></img>
+
+#### Category "Baby Care" and Logged User
+<img alt="" src="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/project_images/cat_logged.png"></img>
+
+#### Product Detail View
+<img alt="" src="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/project_images/details.png"></img>
+
+#### Register Page
+<img alt="" src="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/project_images/register.png"></img>
+
+#### Login Page
+<img alt="" src="https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/project_images/login.png"></img>
+
+
+## What is Containerization?
+
+The shop is ready and pretty and further developed. But then what? 
+
+One way to release the shop is the method of **CONTAINERIZATION**. In this case the application and its dependencies is packed in a closed environment called container. This container can be made to run on any server, for example a virtual machine. To operate a container you need to install a so called container runtime. The one that is used in this project is **Docker**.
 
 ## Usage
 
