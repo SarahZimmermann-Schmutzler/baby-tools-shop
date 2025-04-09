@@ -13,7 +13,6 @@ This guide was created as part of my **DevSecOps training** at the Developer Aka
 1. [Quickstart](#quickstart)
 1. [Usage](#usage)
    * [Installation and Preparation](#installation-and-preparation)
-   * [The needed files](#the-needed-files)
    * [Containerization with Docker](#containerization-with-docker)
 
 ## Technologies
@@ -31,7 +30,7 @@ The application provides an **empty web shop frame** that the user can fill via 
 It includes a **detail view of the products** as well as an **register and login option** for the buyers.
 
 > [!Note]
-> This project is based on an existing Django application that has been **adapted for containerization**.
+> This project is based on an existing Django application that has been **adapted for containerization**. The **initial documentation** can be found [here](https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/commit/6f7020a99b0845e08d8259a27c886f5a7ec45bdc#diff-b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5)
 
 ### Shop Example
 
@@ -150,7 +149,9 @@ This section provides a fast and **minimal setup guide** for using the tools in 
     IP_ADDRESS_VM=123.45.6.78
     ```
 
-### The needed files
+### Containerization with Docker
+
+#### The Files
 
 1. The [`Dockerfile`](./Dockerfile) the structure of a so called container-image, and thus the base of the container.
 
@@ -164,7 +165,7 @@ This section provides a fast and **minimal setup guide** for using the tools in 
 
 1. To create a superuser non-interactively the app workes with the [createsupe.py](./babyshop_app/products/management/commands/createsupe.py).
 
-### Containerization with Docker
+#### The Use
 
 1. Install the container runtime **Docker** if you haven't done it already as shown [here](https://docs.docker.com/get-started/get-docker/):
 
