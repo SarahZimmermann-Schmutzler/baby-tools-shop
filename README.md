@@ -1,6 +1,6 @@
-# Containerize an application on a VM using the example of a web shop: BabyStore
+# Containerize an application using the example of a web shop: BabyStore
 
-Here you learn how to put a finished application - a web shop for baby tools -  into a container and publish it on a VM. The base of this project is a **Python** app that is written with the **Django** framework. The open source platform **Docker** is used for the containerization process.  
+Here you learn **how to put a finished application - a web shop for baby tools -  into a container and publish it on a VM**. The base of this project is a **Python** app that is written with the **Django** framework. The open source platform **Docker** is used for the containerization process.  
   
 This guide was created as part of my **DevSecOps training** at the Developer Akademie.
 
