@@ -12,9 +12,9 @@ This guide was created as part of my **DevSecOps training** at the Developer Aka
 1. [What is Containerization?](#what-is-containerization)
 1. [Quickstart](#quickstart)
 1. [Usage](#usage)
-   * [Prepare the project](#prepare-the-project)
+   * [Installation and Preparation](#installation-and-preparation)
    * [The needed files](#the-needed-files)
-   * [Run the shop in a container](#run-the-shop-in-a-container)
+   * [Containerization with Docker](#containerization-with-docker)
 
 ## Technologies
 
@@ -108,7 +108,7 @@ This section provides a fast and **minimal setup guide** for using the tools in 
     docker run -d \
     --name babystore-container \
     -p 8025:5000 \
-    -v /home/usr/docker/babystore-data:/data \
+    -v path/to/your/data-saving-folder:/data \
     --restart unless-stopped \
     babystore
     ```
@@ -129,7 +129,7 @@ This section provides a fast and **minimal setup guide** for using the tools in 
 
 ## Usage
 
-### Prepare the project
+### Installation and Preparation
 
 0) [Fork](https://docs.github.com/de/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) the project to your namespace, if you want to make changes or open a [Pull Request](https://docs.github.com/de/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
@@ -164,7 +164,7 @@ This section provides a fast and **minimal setup guide** for using the tools in 
 
 1. To create a superuser non-interactively the app workes with the [createsupe.py](./babyshop_app/products/management/commands/createsupe.py).
 
-### Run the shop in a container
+### Containerization with Docker
 
 1. Install the container runtime **Docker** if you haven't done it already as shown [here](https://docs.docker.com/get-started/get-docker/):
 
@@ -203,14 +203,14 @@ This section provides a fast and **minimal setup guide** for using the tools in 
     docker run -d \
     --name babystore-container \
     -p 8025:5000 \
-    -v /home/usr/docker/babystore-data:/data \
+    -v path/to/your/data-saving-folder:/data \
     --restart unless-stopped \
     babystore
     ```
 
     * **-d** : detached mode; container runs in background
     * **--name** : you can name the container
-    * **-v /home/usr/docker/babystore-data:/data** : you can save the data from the database on your host server, otherwise it will be deleted after stopping the container; `home/usr/docker/babystore-data:` path on your host server where the data is stored; `:/data` path in the container where the data is saved
+    * **-v /home/usr/docker/babystore-data:/data** : you can save the data from the database on your host server, otherwise it will be deleted after stopping the container; `path/to/your/data-saving-folder:` path on your host server where the data is stored; `:/data` path in the container where the data is saved
     * **--restart unless-stopped** : container restarts always automatically except it is stopped manually
 
 1. Check if the **setup works**:
