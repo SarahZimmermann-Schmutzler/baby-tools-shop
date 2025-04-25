@@ -36,7 +36,7 @@ It includes a **detail view of the products** as well as an **register and login
 
 #### Homepage
 
-![homepage](https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/project_images/homepage.png)
+![homepage](https://raw.githubusercontent.com/SarahZimmermann-Schmutzler/baby-tools-shop/main/project_images/homepage.png)
 
 #### Category "Baby Care" and Logged User
 
