@@ -40,19 +40,19 @@ It includes a **detail view of the products** as well as an **register and login
 
 #### Category "Baby Care" and Logged User
 
-![category](./project_images/cat_logged.png)
+![category](https://raw.githubusercontent.com/SarahZimmermann-Schmutzler/baby-tools-shop/main/project_images/cat_logged.png)
 
 #### Product Detail View
 
-![details](./project_images/details.png)
+![details](https://raw.githubusercontent.com/SarahZimmermann-Schmutzler/baby-tools-shop/main/project_images/details.png)
 
 #### Register Page
 
-![register](./project_images/register.png)
+![register](https://raw.githubusercontent.com/SarahZimmermann-Schmutzler/baby-tools-shop/main/project_images/register.png)
 
 #### Login Page
 
-![login](./project_images/login.png)
+![login](https://raw.githubusercontent.com/SarahZimmermann-Schmutzler/baby-tools-shop/main/project_images/login.png)
 
 ## What is Containerization?
 
