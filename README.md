@@ -154,7 +154,7 @@ This section provides a fast and **minimal setup guide** for using the tools in 
 
 #### The Files
 
-1. The [`Dockerfile`](./Dockerfile) the structure of a so called container-image, and thus the base of the container.
+1. The [`Dockerfile`](https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/Dockerfile) the structure of a so called container-image, and thus the base of the container.
 
 1. The associated `.dockerignore` file contains the directories that should not be copied to the container, e.g.:
 
