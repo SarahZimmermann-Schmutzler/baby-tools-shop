@@ -36,7 +36,7 @@ It includes a **detail view of the products** as well as an **register and login
 
 #### Homepage
 
-![homepage](./project_images/homepage.png)
+![homepage](https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/project_images/homepage.png)
 
 #### Category "Baby Care" and Logged User
 
@@ -85,7 +85,8 @@ This section provides a fast and **minimal setup guide** for using the tools in 
     SUPERUSER_USERNAME=admin
     SUPERUSER_EMAIL=admin@mail.com
     SUPERUSER_PASSWORD=adminpassword
-    # IP address of you VM for babyshop_app/babyshop/settings.py/ALLOWED_HOSTS
+    # IP address of you VM for 
+    # babyshop_app/babyshop/settings.py/ALLOWED_HOSTS
     IP_ADDRESS_VM=123.45.6.78
     ```
 
