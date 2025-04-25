@@ -164,7 +164,7 @@ This section provides a fast and **minimal setup guide** for using the tools in 
     __pycache__/
     ```
 
-1. To create a superuser non-interactively the app workes with the [createsupe.py](./babyshop_app/products/management/commands/createsupe.py).
+1. To create a superuser non-interactively the app workes with the [createsupe.py](https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/babyshop_app/products/management/commands/createsupe.py).
 
 #### The Use
 
@@ -197,7 +197,7 @@ This section provides a fast and **minimal setup guide** for using the tools in 
     * **babystore** : reference to the container image that is named babystore
 
     * The container should now be accessible at: `IP_Address_VM:8025`
-    * If there is an error regarding the templates, check the [`settings.py`](./babyshop_app/babyshop/settings.py) and adjust the path. Close the test container and **recreate the image after that**.
+    * If there is an error regarding the templates, check the [`settings.py`](https://github.com/SarahZimmermann-Schmutzler/baby-tools-shop/blob/main/babyshop_app/babyshop/settings.py) and adjust the path. Close the test container and **recreate the image after that**.
 
 1. Does the container work, stop it with `CTL + C`and **start the container that keeps the database after restart and that restarts automatically after an error that closes the application**:
 
